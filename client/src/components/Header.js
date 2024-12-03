@@ -1,10 +1,10 @@
 
 import { useAuth } from '../context/AuthContext'
-// import { Sun, Moon, LogOut } from 'lucide-react'
-// import { useTheme } from '../context/TemeContext'
+import { Sun, Moon, LogOut } from 'lucide-react'
+import { useTheme } from '../context/TemeContext'
 
 export default function Header() {
-//   const { isDarkMode, toggleTheme } = useTheme()
+  const { isDarkMode, toggleTheme } = useTheme()
   const { state, dispatch } = useAuth()
 
   const handleLogout = () => {
@@ -17,17 +17,17 @@ export default function Header() {
         <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Social Media Dashboard</h1>
         <div className="flex items-center space-x-4">
           <button
-            // onClick={toggleTheme}
+            onClick={toggleTheme}
             className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white"
           >
-            {/* {isDarkMode ? <Sun size={20} /> : <Moon size={20} />} */}
+            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
           </button>
           {state.isAuthenticated && (
             <button
               onClick={handleLogout}
               className="p-2 rounded-full bg-red-500 text-white hover:bg-red-600 transition-colors"
             >
-              {/* <LogOut size={20} /> */}
+              <LogOut size={20} />
             </button>
           )}
         </div>
